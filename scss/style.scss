@@ -1,0 +1,67 @@
+/*! 
+This is the main stylesheet file. To keep things easier to read we don't actually write any css here. Instead we import a bunch of other partial files.
+In Sass a partial has the following properties:
+
+- it starts with an underscore _
+- it is not automatically processed, you have to @import it
+- if it ends with .scss then you can write normal css or write sass or a combination
+
+Also, FYI, this is an example of a comment that won't get erased or compressed when Sass creates the CSS file. Putting the ! after the opening /* tells Sass not to touch it.
+*/
+
+// this is an example of a Sass comment. It uses the // and will get erased when Sass compiles to CSS
+
+//when you import a file you
+// - leave off the underscore _
+// - leave off the .scss at the end
+
+//import compass, this allows us to use compass styles
+@import "compass";
+
+// import reset first. Copied from Eric Meyer's.
+@import "reset";
+
+// Sass allows you to write variables and set things like colors and widths
+@import "variables";
+
+//Mixins are a kind of function for CSS (Sass also has actual functions). Mixins allow us to more easily write things like media queries and CSS grids.
+@import "mixins";
+
+
+// This is where we will store styles that are used on every page of the site. body, p, h1..h6, ul, li and so on can be set here. It is where you do things like setup the default typography for the site.
+@import "global";
+
+
+// Because navigation can be complex and may even require its own breakpoints we separated it out into its own file instead of putting it in _global.scss
+//@import "navigation";
+
+@import "responsive-nav";
+
+
+// The following files are where you can place page specific CSS. I included the six pages for this site. If you added more pages or had a different site you would modify these.
+
+// Each page has styles that relate just to that page. In the workflow I will show in class, this is where a lot of the media query and grid work will go because that is specific to each page.
+
+@import "pages/index";
+@import "pages/schedule";
+@import "pages/speakers";
+@import "pages/about";
+@import "pages/video";
+@import "pages/sessions";
+
+@import "midterm";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

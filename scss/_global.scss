@@ -1,0 +1,150 @@
+/* 
+==========================
+Global Styles
+These are styles that apply to every page on the site. For example:
+---------------
+Basic Element styling: body,h1,h2,h3,h4,h5,h6,p, a, a:link, a:hover, a:visited, ul, ul
+Repeated sections: header, footer
+
+I separated Navigation because it is complex and It's more likely that you will reuse it or modify code from someone else. 
+Separating it allows you to more easily change and reuse navigation code.
+========================== 
+*/
+
+//Some Responsive styles
+
+//border-box model
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+	@include box-sizing(border-box);
+}
+
+/* 
+This is not the only thing you should do for responsive images, but it is a start. Remember that this style will not make your image or video grow any bigger than the original so you have to put in the largest version you will need.
+That can be a performance issue since small screens will download the same image as large ones.
+This article by Luke Wroblewski goes into more detail about that: http://www.lukew.com/ff/entry.asp?1851
+*/
+img,video{
+  width: auto; 
+  max-width: 100%; 
+  height: auto;
+}
+
+//Google Font examples. You can remove these or uncomment them and change to fit your needs.
+//@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900);
+//@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+
+
+
+body{
+	font-family: sans-serif;
+	font-size: 100%;
+	line-height: 1.5;
+	color:#333;
+	background-color: #fff;
+
+}
+
+p{
+	margin-bottom: 1em;
+}
+
+h1, h2,h3, h4, h5, h6{
+	font-family: Georgia,'Times New Roman', Times ,serif;
+	font-weight: 900; //makes heading very bold
+}
+
+h1{ font-size: 2em; line-height: 1.1; }
+h2{ font-size: 1.6em; line-height: 1.1; }
+h3{ font-size: 1.4em; line-height: 1.1; }
+h4{ font-size: 1.2em; line-height: 1.1; }
+h5{ font-size: 1.1em; line-height: 1.1; }
+h6{ font-size: 1em; line-height: 1.1; }
+
+//font size changes at breakpoints
+@include breakpoint(small){
+	body{ font-size: 100%; line-height: 1.5}
+	h1{ font-size: 2em; line-height: 1.1; }
+	h2{ font-size: 1.8em; line-height: 1.1; }
+	h3{ font-size: 1.6em; line-height: 1.1; }
+	h4{ font-size: 1.4em; line-height: 1.1; }
+	h5{ font-size: 1.2em; line-height: 1.1; }
+	h6{ font-size: 1.1em; line-height: 1.1; }
+}
+
+@include breakpoint(medium){
+	body{ font-size: 100%; line-height: 1.5}
+	h1{ font-size: 3em; line-height: 1.1; }
+	h2{ font-size: 2.5em; line-height: 1.1; }
+	h3{ font-size: 2em; line-height: 1.1; }
+	h4{ font-size: 1.8em; line-height: 1.1; }
+	h5{ font-size: 1.4em; line-height: 1.1; }
+	h6{ font-size: 1.1em; line-height: 1.1; }
+}
+
+@include breakpoint(large){
+	// body{ font-size: 100%; line-height: 1.5}
+	h1{ font-size: 4.5em; line-height: 1.1; }
+	// h2{ font-size: 2.5em; line-height: 1.1; }
+	// h3{ font-size: 2em; line-height: 1.1; }
+	// h4{ font-size: 1.8em; line-height: 1.1; }
+	// h5{ font-size: 1.4em; line-height: 1.1; }
+	// h6{ font-size: 1.1em; line-height: 1.1; }
+}
+
+@include breakpoint(x-large){
+	h1{ font-size: 5em; line-height: 1.1; }
+	h2{ font-size: 3em; line-height: 1.1; }
+}
+
+@include breakpoint(xx-large){
+	h1{ font-size: 6em; line-height: 1; }
+}
+
+
+//==============================
+//Header
+
+.header{
+	
+	@include set-row();
+	margin-bottom: $spacer;
+	.navigation{
+		nav{
+			width:100%;
+		}
+	}
+
+	header{
+		@include col(3,4);
+	}
+
+	//this is just an example of how you might change the header at a specific breakpoint
+	@include breakpoint(large){
+		header {
+			@include col(4,4);
+		}
+	}//end large
+
+}// end header
+
+
+//==============================
+//Footer
+
+
+.footer {
+	clear:both;
+	
+	.copyright{
+		@include col(1,2);
+	}
+
+	.designedBy{
+		@include col(1,2);
+		text-align: right;
+	}
+} //end footer
+
+

@@ -1,0 +1,103 @@
+/* 
+==========================
+Index Page (homepage)
+========================== 
+*/
+
+
+//layout
+#home{
+
+		// default layout =============================================
+/*HOME STyLes*/
+
+.track{
+  width:90%;
+  // margin: 40px;
+}
+.session{
+  width: 100%;
+  padding:10%;
+  background: #cc0000;
+  margin:5% auto;
+  text-align: center;
+
+}
+.presenter{
+  width: 100%;
+  color: #fff;
+
+}
+.about{
+  background-color: #cc0000;
+  padding: 30px;
+
+}
+
+
+.track{
+	color:black;
+}
+
+	//x-small =============================================
+	@include breakpoint(x-small){
+		background-color: black;
+
+	}//end x-small breakpoint
+
+
+
+	//small =============================================
+	@include breakpoint(small){
+		background-color: black;
+		
+	}//end small breakpoint
+
+
+
+	//medium breakpoint =============================================
+	@include breakpoint(medium){
+		background-color: black;
+		.sessionWrap{
+			@include col(1,2);
+		}
+		.sessionWrap:nth-of-type(2n+3){
+			clear:both;
+		}
+
+	}// end medium breakpoint
+
+
+
+	//large breakpoint =============================================
+	@include breakpoint(large){
+		background-color: black;
+		.track{
+			@include col(6,12);
+		}
+
+	}//end large breakpoint
+
+
+
+	//x-large breakkpoint  =============================================
+	@include breakpoint(x-large){
+		background-color:black;
+		color: white;
+
+	}//end xlarge breakpoint
+
+
+	//xx-large breakpoint  =============================================
+	@include breakpoint(xx-large){
+		background-color: black;
+
+	}//end xxlarge breakpoint
+
+}
+//end #home
+
+
+
+
+

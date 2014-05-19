@@ -1,0 +1,137 @@
+/* 
+==========================
+Mixins
+This is not CSS. Mixins work more like functions and help you to write CSS faster. 
+========================== 
+*/
+
+
+// ------------------------------------------------
+// Grid Styling Mixin
+// ------------------------------------------------
+// We're using spacing to help create the gutters and top or bottom margin's to separate sections.
+// If you want the spacing to always be the same then you can set it in px or em. Setting it in % will be the most flexible, 
+// but it may mean the spacing will be different at different breakpoints.
+$spacer: 30px; //$spacer: 2%;$spacer: 1em; 
+$gutter: $spacer/2; //this comes out to 2% gutter because each column has 1% on each side so 2% where two coumns meet
+
+
+@mixin set-row{
+	clear:both;
+	margin: 0 0;
+	overflow: hidden;
+}
+@mixin no-row{
+	clear:none;
+}
+
+@mixin col($cols, $total){
+	width:$cols/$total * 100%;
+	padding:0 $gutter;
+	float: left;
+
+	// &:last-of-type{
+	// 	float:right;
+	// }
+}
+
+@mixin push-right(){
+	float:right;
+}
+@mixin push-left(){
+	float:left;
+}
+
+@mixin no-col(){
+	width:100%;
+	padding:0;
+	float:none;
+
+	&:last-of-type{
+		float:right;
+	}	
+}
+
+@mixin gridset($cols, $total){
+	width:$cols/$total * 100%;
+	padding:0 $gutter;
+	float: left;
+
+	&:last-of-type{
+		float:right;
+	}
+}
+
+@mixin first(){
+	padding-left: 0;
+}
+
+@mixin last(){
+	padding-right: 0;
+}
+
+
+// ================================================
+// Media Query Mixin
+// ================================================
+
+//This mixin assumes a mobile-first style. That means a few things are taken for granted
+// - You will write styles for the smallest screen size as your default styles. So this starts breakpoints at 321 and moves up
+// - It uses min-width media queries only. This means any styles you write will apply at the breakpoint given an above. For example the small styles will also apply to medium, large and so on
+
+
+// BREAKPOINT Variables
+// You can change the values for these breakpoints or add more. If you know the width in pixels, divide it by 16
+// ---------------------------------
+
+$x-small: 30em; //480 and over = 480 / 16
+$small: 40em;  //640px and over = 640 / 16
+$medium: 50em; //800px and over = 800 / 16
+$large: 67.5em; //1080px and over = 1080 / 16
+$x-large: 80em; //1280px and over = 1280 / 16
+$xx-large: 90em; //1440px and over = 1440 / 16
+
+
+//if you want your site to stop getting bigger at some point then make sure to include a max-width rule on the body or a wrapping container
+//For Example
+// .container{
+// 	max-width: 85em;
+// }
+
+@mixin breakpoint($size){
+	@if $size == x-small {
+		@media only screen and (min-width: $x-small){
+			@content;
+		}
+	}
+
+	@elseif $size == small {
+		@media only screen and (min-width: $small){
+			@content;
+		}
+	}
+
+	@elseif $size == medium {
+		@media only screen and (min-width: $medium){
+			@content;
+		}
+	}
+
+	@elseif $size == large {
+		@media only screen and (min-width: $large){
+			@content;
+		}
+	}
+
+	@elseif $size == x-large{
+		@media only screen and (min-width: $x-large){
+			@content;
+		}
+	}
+
+	@elseif $size == xx-large{
+		@media only screen and (min-width: $xx-large){
+			@content;
+		}
+	}
+}//end mixin breakpoint

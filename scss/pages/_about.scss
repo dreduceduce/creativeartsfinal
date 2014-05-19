@@ -1,0 +1,70 @@
+/* 
+==========================
+About Page 
+========================== 
+*/
+
+
+//layout
+#about{
+
+	// default layout =============================================
+
+
+	//x-small =============================================
+	@include breakpoint(x-small){
+		background-color: black;
+
+	}//end x-small breakpoint
+
+
+
+	//small =============================================
+	@include breakpoint(small){
+		background-color: black;
+		
+	}//end small breakpoint
+
+
+
+	//medium breakpoint =============================================
+	@include breakpoint(medium){
+		background-color: black;
+		.sessionWrap{
+			@include col(1,2);
+		}
+		.sessionWrap:nth-of-type(2n+4){
+			clear:both;
+		}
+
+	}// end medium breakpoint
+
+
+
+	//large breakpoint =============================================
+	@include breakpoint(large){
+		background-color: black;
+
+	}//end large breakpoint
+
+
+
+	//x-large breakkpoint  =============================================
+	@include breakpoint(x-large){
+		background-color: black;
+		color: white;
+
+	}//end xlarge breakpoint
+
+
+	//xx-large breakpoint  =============================================
+	@include breakpoint(xx-large){
+		background-color: black;
+
+	}//end xxlarge breakpoint
+}//end #about
+
+
+
+
+

@@ -1,0 +1,90 @@
+/* 
+==========================
+Index Page (speakerspg)
+========================== 
+*/
+
+
+//layout
+#video{
+
+		// default layout =============================================
+
+
+	//x-small =============================================
+	@include breakpoint(x-small){
+		background-color: black;
+
+
+	}//end x-small breakpoint
+
+
+
+	//small =============================================
+	@include breakpoint(small){
+		background-color: black;
+		
+	}//end small breakpoint
+
+
+
+	//medium breakpoint =============================================
+	@include breakpoint(medium){
+		background-color: black;
+		.sessionWrap{
+			@include col(1,2);
+		}
+		.sessionWrap:nth-of-type(2n+1){
+			clear:both;
+		}
+
+	}// end medium breakpoint
+
+
+
+	//large breakpoint =============================================
+	@include breakpoint(large){
+		background-color: black;
+
+	}//end large breakpoint
+
+
+
+	//x-large breakkpoint  =============================================
+	@include breakpoint(x-large){
+		background-color: black;
+		color: white;
+		.sessionWrap{
+			@include col(1,4);
+		}
+		.sessionWrap:nth-of-type(3n+1){
+			clear:none;
+		}
+		.sessionWrap:nth-of-type(4n+1){
+			clear:both;
+		}
+		
+
+	}//end xlarge breakpoint
+
+
+	//xx-large breakpoint  =============================================
+	@include breakpoint(xx-large){
+		background-color: black;
+
+	}
+	//end xxlarge breakpoint
+
+
+}
+//end #home
+
+
+
+
+
+/* 
+==========================
+Speakers Page 
+========================== 
+*/

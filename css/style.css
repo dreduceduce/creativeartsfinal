@@ -1,0 +1,1317 @@
+                                                                                                                                               /* 
+This is the main stylesheet file. To keep things easier to read we don't actually write any css here. Instead we import a bunch of other partial files.
+In Sass a partial has the following properties:
+
+- it starts with an underscore _
+- it is not automatically processed, you have to @import it
+- if it ends with .scss then you can write normal css or write sass or a combination
+
+Also, FYI, this is an example of a comment that won't get erased or compressed when Sass creates the CSS file. Putting the ! after the opening /* tells Sass not to touch it.
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 18, ../scss/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 28, ../scss/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 31, ../scss/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 34, ../scss/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 37, ../scss/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 41, ../scss/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 45, ../scss/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 
+==========================
+Mixins
+This is not CSS. Mixins work more like functions and help you to write CSS faster. 
+========================== 
+*/
+/* 
+==========================
+Global Styles
+These are styles that apply to every page on the site. For example:
+---------------
+Basic Element styling: body,h1,h2,h3,h4,h5,h6,p, a, a:link, a:hover, a:visited, ul, ul
+Repeated sections: header, footer
+
+I separated Navigation because it is complex and It's more likely that you will reuse it or modify code from someone else. 
+Separating it allows you to more easily change and reuse navigation code.
+========================== 
+*/
+/* apply a natural box layout model to all elements */
+/* line 18, ../scss/_global.scss */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* 
+This is not the only thing you should do for responsive images, but it is a start. Remember that this style will not make your image or video grow any bigger than the original so you have to put in the largest version you will need.
+That can be a performance issue since small screens will download the same image as large ones.
+This article by Luke Wroblewski goes into more detail about that: http://www.lukew.com/ff/entry.asp?1851
+*/
+/* line 27, ../scss/_global.scss */
+img, video {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 40, ../scss/_global.scss */
+body {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+}
+
+/* line 49, ../scss/_global.scss */
+p {
+  margin-bottom: 1em;
+}
+
+/* line 53, ../scss/_global.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia,'Times New Roman', Times ,serif;
+  font-weight: 900;
+}
+
+/* line 58, ../scss/_global.scss */
+h1 {
+  font-size: 2em;
+  line-height: 1.1;
+}
+
+/* line 59, ../scss/_global.scss */
+h2 {
+  font-size: 1.6em;
+  line-height: 1.1;
+}
+
+/* line 60, ../scss/_global.scss */
+h3 {
+  font-size: 1.4em;
+  line-height: 1.1;
+}
+
+/* line 61, ../scss/_global.scss */
+h4 {
+  font-size: 1.2em;
+  line-height: 1.1;
+}
+
+/* line 62, ../scss/_global.scss */
+h5 {
+  font-size: 1.1em;
+  line-height: 1.1;
+}
+
+/* line 63, ../scss/_global.scss */
+h6 {
+  font-size: 1em;
+  line-height: 1.1;
+}
+
+@media only screen and (min-width: 40em) {
+  /* line 67, ../scss/_global.scss */
+  body {
+    font-size: 100%;
+    line-height: 1.5;
+  }
+
+  /* line 68, ../scss/_global.scss */
+  h1 {
+    font-size: 2em;
+    line-height: 1.1;
+  }
+
+  /* line 69, ../scss/_global.scss */
+  h2 {
+    font-size: 1.8em;
+    line-height: 1.1;
+  }
+
+  /* line 70, ../scss/_global.scss */
+  h3 {
+    font-size: 1.6em;
+    line-height: 1.1;
+  }
+
+  /* line 71, ../scss/_global.scss */
+  h4 {
+    font-size: 1.4em;
+    line-height: 1.1;
+  }
+
+  /* line 72, ../scss/_global.scss */
+  h5 {
+    font-size: 1.2em;
+    line-height: 1.1;
+  }
+
+  /* line 73, ../scss/_global.scss */
+  h6 {
+    font-size: 1.1em;
+    line-height: 1.1;
+  }
+}
+@media only screen and (min-width: 50em) {
+  /* line 77, ../scss/_global.scss */
+  body {
+    font-size: 100%;
+    line-height: 1.5;
+  }
+
+  /* line 78, ../scss/_global.scss */
+  h1 {
+    font-size: 3em;
+    line-height: 1.1;
+  }
+
+  /* line 79, ../scss/_global.scss */
+  h2 {
+    font-size: 2.5em;
+    line-height: 1.1;
+  }
+
+  /* line 80, ../scss/_global.scss */
+  h3 {
+    font-size: 2em;
+    line-height: 1.1;
+  }
+
+  /* line 81, ../scss/_global.scss */
+  h4 {
+    font-size: 1.8em;
+    line-height: 1.1;
+  }
+
+  /* line 82, ../scss/_global.scss */
+  h5 {
+    font-size: 1.4em;
+    line-height: 1.1;
+  }
+
+  /* line 83, ../scss/_global.scss */
+  h6 {
+    font-size: 1.1em;
+    line-height: 1.1;
+  }
+}
+@media only screen and (min-width: 67.5em) {
+  /* line 88, ../scss/_global.scss */
+  h1 {
+    font-size: 4.5em;
+    line-height: 1.1;
+  }
+}
+@media only screen and (min-width: 80em) {
+  /* line 97, ../scss/_global.scss */
+  h1 {
+    font-size: 5em;
+    line-height: 1.1;
+  }
+
+  /* line 98, ../scss/_global.scss */
+  h2 {
+    font-size: 3em;
+    line-height: 1.1;
+  }
+}
+@media only screen and (min-width: 90em) {
+  /* line 102, ../scss/_global.scss */
+  h1 {
+    font-size: 6em;
+    line-height: 1;
+  }
+}
+/* line 109, ../scss/_global.scss */
+.header {
+  clear: both;
+  margin: 0 0;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+/* line 114, ../scss/_global.scss */
+.header .navigation nav {
+  width: 100%;
+}
+/* line 119, ../scss/_global.scss */
+.header header {
+  width: 75%;
+  padding: 0 15px;
+  float: left;
+}
+@media only screen and (min-width: 67.5em) {
+  /* line 125, ../scss/_global.scss */
+  .header header {
+    width: 100%;
+    padding: 0 15px;
+    float: left;
+  }
+}
+
+/* line 137, ../scss/_global.scss */
+.footer {
+  clear: both;
+}
+/* line 140, ../scss/_global.scss */
+.footer .copyright {
+  width: 50%;
+  padding: 0 15px;
+  float: left;
+}
+/* line 144, ../scss/_global.scss */
+.footer .designedBy {
+  width: 50%;
+  padding: 0 15px;
+  float: left;
+  text-align: right;
+}
+
+/* copied without chaning CSS to be Sassified */
+/* responsive-nav.js 1.0.32 by @viljamis */
+/* line 5, ../scss/_responsive-nav.scss */
+.nav-collapse ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+  list-style: none;
+}
+
+/* line 13, ../scss/_responsive-nav.scss */
+.nav-collapse li {
+  width: 100%;
+  display: block;
+}
+
+/* line 18, ../scss/_responsive-nav.scss */
+.js .nav-collapse {
+  clip: rect(0 0 0 0);
+  max-height: 0;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  zoom: 1;
+}
+
+/* line 27, ../scss/_responsive-nav.scss */
+.nav-collapse.opened {
+  max-height: 9999px;
+}
+
+/* line 31, ../scss/_responsive-nav.scss */
+.disable-pointer-events {
+  pointer-events: none !important;
+}
+
+/* line 35, ../scss/_responsive-nav.scss */
+.nav-toggle {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+@media screen and (min-width: 40em) {
+  /* line 46, ../scss/_responsive-nav.scss */
+  .js .nav-collapse {
+    position: relative;
+  }
+
+  /* line 49, ../scss/_responsive-nav.scss */
+  .js .nav-collapse.closed {
+    max-height: none;
+  }
+
+  /* line 52, ../scss/_responsive-nav.scss */
+  .nav-toggle {
+    display: none;
+  }
+}
+/* =======================================
+    Custom Styling for Nav. You can use this, modify it or delete it.
+    This is just styling and not required for the nav to work.
+
+    The CSS above IS required and you should not delete that
+
+*/
+/*Here is default*/
+/* ------------------------------------------
+  NAVIGATION STYLES
+  (+ responsive-nav.css file is loaded in the <head>)
+--------------------------------------------- */
+/* line 75, ../scss/_responsive-nav.scss */
+.fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* line 83, ../scss/_responsive-nav.scss */
+.nav-collapse,
+.nav-collapse * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 90, ../scss/_responsive-nav.scss */
+.nav-collapse,
+.nav-collapse ul {
+  list-style: none;
+  width: 100%;
+  float: left;
+}
+
+/* line 96, ../scss/_responsive-nav.scss */
+.nav-collapse li {
+  float: left;
+  width: 100%;
+}
+
+@media screen and (min-width: 40em) {
+  /* line 102, ../scss/_responsive-nav.scss */
+  .nav-collapse li {
+    width: 25%;
+    *width: 24.9%;
+    /* IE7 Hack */
+    _width: 19%;
+    /* IE6 Hack */
+    width: 15%;
+  }
+}
+/* line 112, ../scss/_responsive-nav.scss */
+.nav-collapse a {
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  background: #f4421a;
+  border-bottom: 1px solid white;
+  padding: 0.7em 1em;
+  float: left;
+}
+
+@media screen and (min-width: 40em) {
+  /* line 123, ../scss/_responsive-nav.scss */
+  .nav-collapse a {
+    margin: 0;
+    padding: 1em;
+    float: left;
+    text-align: center;
+    border-bottom: 0;
+    border-right: 1px solid white;
+  }
+}
+/* line 133, ../scss/_responsive-nav.scss */
+.nav-collapse ul ul a {
+  background: #ca3716;
+  padding-left: 2em;
+}
+
+@media screen and (min-width: 40em) {
+  /* line 139, ../scss/_responsive-nav.scss */
+  .nav-collapse ul ul a {
+    display: none;
+  }
+}
+/* ------------------------------------------
+  NAV TOGGLE STYLES
+--------------------------------------------- */
+@font-face {
+  font-family: "responsivenav";
+  src: url("../icons/responsivenav.eot");
+  src: url("../icons/responsivenav.eot?#iefix") format("embedded-opentype"), url("../icons/responsivenav.ttf") format("truetype"), url("../icons/responsivenav.woff") format("woff"), url("../icons/responsivenav.svg#responsivenav") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 160, ../scss/_responsive-nav.scss */
+.nav-toggle {
+  position: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  text-indent: -999px;
+  position: relative;
+  overflow: hidden;
+  width: 70px;
+  height: 55px;
+  float: right;
+}
+
+/* line 178, ../scss/_responsive-nav.scss */
+.nav-toggle:before {
+  color: #f4421a;
+  /* Edit this to change the icon color */
+  font-family: "responsivenav", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 28px;
+  text-transform: none;
+  position: absolute;
+  content: "≡";
+  text-indent: 0;
+  text-align: center;
+  line-height: 55px;
+  speak: none;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* line 197, ../scss/_responsive-nav.scss */
+.nav-toggle.active::before {
+  font-size: 24px;
+  content: "x";
+}
+
+/*
+  =============================================
+
+
+And here are some customizations I made
+
+This stuff needs to be cleaned up and commented to explain
+
+*/
+/* line 223, ../scss/_responsive-nav.scss */
+.nav-toggle.active:before {
+  font-size: 24px;
+  content: "x";
+}
+
+/* line 228, ../scss/_responsive-nav.scss */
+.nav-toggle:before {
+  color: #F4421A;
+  font-family: "responsivenav",sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 28px;
+  text-transform: none;
+  position: absolute;
+  content: "≡";
+  text-indent: 0px;
+  line-height: 55px;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  text-align: left;
+}
+
+/* line 246, ../scss/_responsive-nav.scss */
+a:active, a:hover {
+  outline: 0px none;
+}
+
+/* line 250, ../scss/_responsive-nav.scss */
+.nav-toggle {
+  -moz-osx-font-smoothing: grayscale;
+  -moz-user-select: none;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  height: 55px;
+  line-height: 55px;
+  float: right;
+  text-indent: 25px;
+  width: 75px;
+  color: #f4421A;
+}
+
+/* 
+==========================
+Index Page (homepage)
+========================== 
+*/
+/* line 9, ../scss/pages/_index.scss */
+#home {
+  /*HOME STyLes*/
+}
+/* line 14, ../scss/pages/_index.scss */
+#home .track {
+  width: 90%;
+}
+/* line 18, ../scss/pages/_index.scss */
+#home .session {
+  width: 100%;
+  padding: 10%;
+  background: #cc0000;
+  margin: 5% auto;
+  text-align: center;
+}
+/* line 26, ../scss/pages/_index.scss */
+#home .presenter {
+  width: 100%;
+  color: #fff;
+}
+/* line 31, ../scss/pages/_index.scss */
+#home .about {
+  background-color: #cc0000;
+  padding: 30px;
+}
+/* line 38, ../scss/pages/_index.scss */
+#home .track {
+  color: black;
+}
+@media only screen and (min-width: 30em) {
+  /* line 9, ../scss/pages/_index.scss */
+  #home {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 40em) {
+  /* line 9, ../scss/pages/_index.scss */
+  #home {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 50em) {
+  /* line 9, ../scss/pages/_index.scss */
+  #home {
+    background-color: black;
+  }
+  /* line 61, ../scss/pages/_index.scss */
+  #home .sessionWrap {
+    width: 50%;
+    padding: 0 15px;
+    float: left;
+  }
+  /* line 64, ../scss/pages/_index.scss */
+  #home .sessionWrap:nth-of-type(2n+3) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 67.5em) {
+  /* line 9, ../scss/pages/_index.scss */
+  #home {
+    background-color: black;
+  }
+  /* line 75, ../scss/pages/_index.scss */
+  #home .track {
+    width: 50%;
+    padding: 0 15px;
+    float: left;
+  }
+}
+@media only screen and (min-width: 80em) {
+  /* line 9, ../scss/pages/_index.scss */
+  #home {
+    background-color: black;
+    color: white;
+  }
+}
+@media only screen and (min-width: 90em) {
+  /* line 9, ../scss/pages/_index.scss */
+  #home {
+    background-color: black;
+  }
+}
+
+/* 
+==========================
+Schedule Page 
+========================== 
+*/
+/* line 13, ../scss/pages/_schedule.scss */
+#schedule .track {
+  clear: both;
+  background-color: #000;
+}
+@media only screen and (min-width: 30em) {
+  /* line 10, ../scss/pages/_schedule.scss */
+  #schedule {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 40em) {
+  /* line 10, ../scss/pages/_schedule.scss */
+  #schedule {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 50em) {
+  /* line 10, ../scss/pages/_schedule.scss */
+  #schedule {
+    background-color: black;
+  }
+  /* line 38, ../scss/pages/_schedule.scss */
+  #schedule .sessionWrap {
+    width: 50%;
+    padding: 0 15px;
+    float: left;
+  }
+  /* line 41, ../scss/pages/_schedule.scss */
+  #schedule .sessionWrap:nth-of-type(2n+2) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 50em) and (min-width: 67.5em) {
+  /* line 10, ../scss/pages/_schedule.scss */
+  #schedule {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 50em) and (min-width: 80em) {
+  /* line 10, ../scss/pages/_schedule.scss */
+  #schedule {
+    background-color: black;
+    color: white;
+  }
+  /* line 61, ../scss/pages/_schedule.scss */
+  #schedule .sessionWrap {
+    width: 25%;
+    padding: 0 15px;
+    float: left;
+  }
+  /* line 64, ../scss/pages/_schedule.scss */
+  #schedule .sessionWrap:nth-of-type(2n+2) {
+    clear: none;
+  }
+  /* line 67, ../scss/pages/_schedule.scss */
+  #schedule .sessionWrap:nth-of-type(4n+1) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 50em) and (min-width: 90em) {
+  /* line 10, ../scss/pages/_schedule.scss */
+  #schedule {
+    background-color: black;
+  }
+}
+
+/* 
+==========================
+Index Page (speakerspg)
+========================== 
+*/
+@media only screen and (min-width: 30em) {
+  /* line 9, ../scss/pages/_speakers.scss */
+  #speakers {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 40em) {
+  /* line 9, ../scss/pages/_speakers.scss */
+  #speakers {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 50em) {
+  /* line 9, ../scss/pages/_speakers.scss */
+  #speakers {
+    background-color: black;
+  }
+  /* line 34, ../scss/pages/_speakers.scss */
+  #speakers .sessionWrap {
+    width: 50%;
+    padding: 0 15px;
+    float: left;
+  }
+  /* line 37, ../scss/pages/_speakers.scss */
+  #speakers .sessionWrap:nth-of-type(2n+1) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 67.5em) {
+  /* line 9, ../scss/pages/_speakers.scss */
+  #speakers {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 80em) {
+  /* line 9, ../scss/pages/_speakers.scss */
+  #speakers {
+    background-color: black;
+    color: white;
+  }
+  /* line 57, ../scss/pages/_speakers.scss */
+  #speakers .sessionWrap {
+    width: 25%;
+    padding: 0 15px;
+    float: left;
+  }
+  /* line 60, ../scss/pages/_speakers.scss */
+  #speakers .sessionWrap:nth-of-type(2n+1) {
+    clear: none;
+  }
+  /* line 63, ../scss/pages/_speakers.scss */
+  #speakers .sessionWrap:nth-of-type(4n+1) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 90em) {
+  /* line 9, ../scss/pages/_speakers.scss */
+  #speakers {
+    background-color: black;
+  }
+}
+
+/* 
+==========================
+Speakers Page 
+========================== 
+*/
+/* 
+==========================
+About Page 
+========================== 
+*/
+@media only screen and (min-width: 30em) {
+  /* line 9, ../scss/pages/_about.scss */
+  #about {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 40em) {
+  /* line 9, ../scss/pages/_about.scss */
+  #about {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 50em) {
+  /* line 9, ../scss/pages/_about.scss */
+  #about {
+    background-color: black;
+  }
+  /* line 33, ../scss/pages/_about.scss */
+  #about .sessionWrap {
+    width: 50%;
+    padding: 0 15px;
+    float: left;
+  }
+  /* line 36, ../scss/pages/_about.scss */
+  #about .sessionWrap:nth-of-type(2n+4) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 67.5em) {
+  /* line 9, ../scss/pages/_about.scss */
+  #about {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 80em) {
+  /* line 9, ../scss/pages/_about.scss */
+  #about {
+    background-color: black;
+    color: white;
+  }
+}
+@media only screen and (min-width: 90em) {
+  /* line 9, ../scss/pages/_about.scss */
+  #about {
+    background-color: black;
+  }
+}
+
+/* 
+==========================
+Index Page (speakerspg)
+========================== 
+*/
+@media only screen and (min-width: 30em) {
+  /* line 9, ../scss/pages/_video.scss */
+  #video {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 40em) {
+  /* line 9, ../scss/pages/_video.scss */
+  #video {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 50em) {
+  /* line 9, ../scss/pages/_video.scss */
+  #video {
+    background-color: black;
+  }
+  /* line 34, ../scss/pages/_video.scss */
+  #video .sessionWrap {
+    width: 50%;
+    padding: 0 15px;
+    float: left;
+  }
+  /* line 37, ../scss/pages/_video.scss */
+  #video .sessionWrap:nth-of-type(2n+1) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 67.5em) {
+  /* line 9, ../scss/pages/_video.scss */
+  #video {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 80em) {
+  /* line 9, ../scss/pages/_video.scss */
+  #video {
+    background-color: black;
+    color: white;
+  }
+  /* line 57, ../scss/pages/_video.scss */
+  #video .sessionWrap {
+    width: 25%;
+    padding: 0 15px;
+    float: left;
+  }
+  /* line 60, ../scss/pages/_video.scss */
+  #video .sessionWrap:nth-of-type(3n+1) {
+    clear: none;
+  }
+  /* line 63, ../scss/pages/_video.scss */
+  #video .sessionWrap:nth-of-type(4n+1) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 90em) {
+  /* line 9, ../scss/pages/_video.scss */
+  #video {
+    background-color: black;
+  }
+}
+
+/* 
+==========================
+Speakers Page 
+========================== 
+*/
+/* 
+==========================
+Sessions Page 
+========================== 
+*/
+/* line 13, ../scss/pages/_sessions.scss */
+#sessions .track {
+  clear: both;
+  background-color: #000;
+}
+@media only screen and (min-width: 30em) {
+  /* line 10, ../scss/pages/_sessions.scss */
+  #sessions {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 40em) {
+  /* line 10, ../scss/pages/_sessions.scss */
+  #sessions {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 50em) {
+  /* line 10, ../scss/pages/_sessions.scss */
+  #sessions {
+    background-color: black;
+  }
+  /* line 38, ../scss/pages/_sessions.scss */
+  #sessions .sessionWrap {
+    width: 50%;
+    padding: 0 15px;
+    float: left;
+  }
+  /* line 41, ../scss/pages/_sessions.scss */
+  #sessions .sessionWrap:nth-of-type(2n+3) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 50em) and (min-width: 67.5em) {
+  /* line 10, ../scss/pages/_sessions.scss */
+  #sessions {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 50em) and (min-width: 80em) {
+  /* line 10, ../scss/pages/_sessions.scss */
+  #sessions {
+    background-color: black;
+    color: white;
+  }
+  /* line 61, ../scss/pages/_sessions.scss */
+  #sessions .sessionWrap {
+    width: 25%;
+    padding: 0 15px;
+    float: left;
+  }
+  /* line 64, ../scss/pages/_sessions.scss */
+  #sessions .sessionWrap:nth-of-type(2n+1) {
+    clear: none;
+  }
+  /* line 67, ../scss/pages/_sessions.scss */
+  #sessions .sessionWrap:nth-of-type(4n+1) {
+    clear: both;
+  }
+}
+@media only screen and (min-width: 50em) and (min-width: 90em) {
+  /* line 10, ../scss/pages/_sessions.scss */
+  #sessions {
+    background-color: black;
+  }
+}
+
+/* line 3, ../scss/_midterm.scss */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 8, ../scss/_midterm.scss */
+body {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #666;
+  padding: 0 2%;
+  background: #000;
+}
+
+/* line 15, ../scss/_midterm.scss */
+h1 {
+  color: #fff;
+  font-size: 2.5em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* line 21, ../scss/_midterm.scss */
+h2 {
+  color: #fff;
+  font-size: 2em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* line 27, ../scss/_midterm.scss */
+h3 {
+  font-size: 1em;
+}
+
+/* line 30, ../scss/_midterm.scss */
+h4 {
+  color: #fff;
+  font-size: 1.6em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* line 36, ../scss/_midterm.scss */
+h5 {
+  color: #fff;
+  font-size: 1.6em;
+  line-height: 1;
+  text-align: center;
+}
+
+/* line 42, ../scss/_midterm.scss */
+h6 {
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 1;
+  text-align: right;
+}
+
+/* line 48, ../scss/_midterm.scss */
+img, video {
+  width: auto;
+  max-width: 60%;
+  height: auto;
+  border-radius: 100%;
+}
+
+/* line 55, ../scss/_midterm.scss */
+p {
+  font-size: 1em;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* line 60, ../scss/_midterm.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 64, ../scss/_midterm.scss */
+.track {
+  width: 90%;
+  background-color: white;
+}
+
+/* line 68, ../scss/_midterm.scss */
+.session {
+  width: 100%;
+  padding: 10%;
+  background: #cc0000;
+  margin: 5% auto;
+  text-align: center;
+}
+
+/* line 76, ../scss/_midterm.scss */
+.presenter {
+  width: 100%;
+  color: #fff;
+  text-align: right;
+}
+
+/* =====================================
+   CSS for <iframe> embedded element
+   ===================================== */
+/* line 86, ../scss/_midterm.scss */
+.mapWrapper {
+  position: relative;
+  padding-bottom: 66.6666667%;
+  /* 
+  do math with the height of your iframe divided by the width, then converted to percent
+  in this example the height is 400 and the width is 600
+  400 / 600 = .66666667 
+  which is 66.6666667% */
+  height: 0;
+}
+
+/* line 96, ../scss/_midterm.scss */
+.mapWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =====================================
+   CSS for <iframe> embedded element
+   ===================================== */
+/* line 107, ../scss/_midterm.scss */
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  /* if your video is 4:3 ratio then use the padding-bottom below:*/
+  /*padding-bottom: 75%;*/
+  /* 4:3 */
+  padding-top: 25px;
+  /* may need to adjust depending on the size of the player controls of the service you use */
+  height: 0;
+}
+
+/* line 116, ../scss/_midterm.scss */
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================
+* NAVIGATION 
+* Modified from: http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/a-simple-responsive-mobile-first-navigation/
+* =============================*/
+/* line 128, ../scss/_midterm.scss */
+#main_nav {
+  clear: both;
+}
+
+/* line 132, ../scss/_midterm.scss */
+#main_nav ul {
+  list-style: none;
+}
+
+/* line 136, ../scss/_midterm.scss */
+#main_nav li a {
+  display: block;
+  color: #fff;
+  background-color: #555;
+  text-transform: uppercase;
+  padding: 0.625em;
+  /* 10/16 */
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  font-weight: 900;
+}
+
+/* line 147, ../scss/_midterm.scss */
+#main_nav li a:hover {
+  color: #555;
+  background-color: #fff;
+}
+
+/* line 152, ../scss/_midterm.scss */
+#main_nav li a:active {
+  color: #555;
+  background-color: #f90;
+}
+
+/* menu button */
+/* line 158, ../scss/_midterm.scss */
+.menu a {
+  padding: 0.5em 0.625em;
+  /*10/16 */
+  background-color: #555;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* line 166, ../scss/_midterm.scss */
+.menu a:hover {
+  color: #555;
+  background-color: #f90;
+}
+
+/* line 171, ../scss/_midterm.scss */
+.menu {
+  margin-bottom: 1em;
+}
+
+/* ==========================
+*  Media Queries for Main Nav
+*  ========================== */
+/* these don't have to be separate. We did so for two reasons:
+1. Easy to copy and paste this into new design
+2. Depending on your site you may need separate break points for the nav. You may want to see what width is needed to fit your nav horizontally without breaking and use that as the breakpoint. 
+
+It should also be noted that there is only one media query because this CSS moves the nav to the top where it can stay for all of the other sizes.
+*/
+/* 656 / 16 */
+@media only screen and (min-width: 42.75em) {
+  /* hide the menu button */
+  /* line 188, ../scss/_midterm.scss */
+  .menu {
+    display: none;
+  }
+
+  /* move main_nav to top of the screen */
+  /* line 193, ../scss/_midterm.scss */
+  #main_nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #555;
+  }
+
+  /* line 202, ../scss/_midterm.scss */
+  #main_nav li {
+    display: inline;
+    line-height: 1em;
+  }
+
+  /* line 206, ../scss/_midterm.scss */
+  #main_nav li a {
+    float: left;
+    padding: 0.9375em;
+    /* 10/16  and  15/16 */
+    border-bottom: none;
+  }
+
+  /* hide the link to top in the nav */
+  /* line 213, ../scss/_midterm.scss */
+  #main_nav li a.top {
+    display: none;
+  }
+
+  /* move the rest of the page down accordingly */
+  /* line 218, ../scss/_midterm.scss */
+  .container {
+    margin-top: 3.75em;
+    /*60 / 16 */
+  }
+}
+/* end min-width:30.0625em */
+/*ABOUT STYLES*/
+/* line 232, ../scss/_midterm.scss */
+#about .session {
+  width: 100%;
+  height: 40%;
+  padding: 5%;
+  background: #cc0000;
+  margin: 5% auto;
+}
+
+/* line 241, ../scss/_midterm.scss */
+#about .date {
+  background: #666;
+  margin: auto;
+  text-align: center;
+}
+
+/* line 251, ../scss/_midterm.scss */
+#about .time {
+  background: #666;
+  margin: auto;
+}
+
+/* line 257, ../scss/_midterm.scss */
+#about .presenter {
+  width: 100%;
+  color: #fff;
+}
+
+/* line 262, ../scss/_midterm.scss */
+#about .about {
+  background-color: #cc0000;
+  padding: 30px;
+}
